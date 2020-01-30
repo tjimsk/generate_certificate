@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+HOST=$(scutil --get LocalHostName)
+
+if [ $# -eq 1 ]; then
+	HOST=$1
+fi
+
+go run $(go env GOROOT)/src/crypto/tls/generate_cert.go --host=$HOST
